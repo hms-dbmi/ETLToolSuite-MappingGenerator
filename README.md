@@ -1,4 +1,7 @@
 # ETLToolSuite-MappingGenerator
+
+Author: Thomas DeSain
+
 Used to generate mapping files for I2B2TM ETL processes.  
 ***
 ** How to run the example for GSE13168 **  
@@ -13,7 +16,7 @@ Steps:
 
 1. sudo su  
 2. use git to clone this project to a dir of your choosing.  
-`git clone username@https://github.com/hms-dbmi/ETLToolSuite-MappingGenerator`  
+`git clone https://username@github.com/hms-dbmi/ETLToolSuite-MappingGenerator`  
 3. cd to root directory:  
 `cd ETLToolSuite-MappingGenerator`   
 4. execute following code block:  
