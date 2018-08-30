@@ -234,7 +234,7 @@ public class Data {
 						String fileName = f.getName();
 						
 						String key = fileName + ":" + data.colIndex;
-						String rootNode = data.dataLabel;
+						String rootNode = "\\" + data.dataLabel + "\\";
 						String supPath = "";
 						String dataType = "";
 						String options = "";
@@ -250,7 +250,7 @@ public class Data {
 					String fileName = file.getName();
 					
 					String key = fileName + ":" + data.colIndex;
-					String rootNode = data.dataLabel;
+					String rootNode = "\\" + data.dataLabel + "\\";
 					String supPath = "";
 					String dataType = "";
 					String options = "";
@@ -273,7 +273,7 @@ public class Data {
 		List<Mapping> mappings = new ArrayList<Mapping>();
 		
 		for(Data d: fullData) {
-			mappings.add(new Mapping(d.getFileName() + ":" + d.getColIndex(), d.getDataLabel(), "", d.getDataType(), ""));
+			mappings.add(new Mapping(d.getFileName() + ":" + d.getColIndex(), "\\" + d.getDataLabel() + "\\", "", d.getDataType(), ""));
 			
 		}
 		mappings.add(0,Mapping.makeHeaders());

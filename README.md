@@ -1,7 +1,7 @@
 # ETLToolSuite-MappingGenerator
 Used to generate mapping files for I2B2TM ETL processes.  
 ***
-** How to run the example for GSE13168**  
+** How to run the example for GSE13168 **  
 This example was validated on a mac and AMI Linux terminals  
 
 Prerequistes:  
