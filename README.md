@@ -4,7 +4,7 @@ Author: Thomas DeSain
 
 Used to generate mapping files for I2B2TM ETL processes.  
 ***
-** How to run the example for GSE13168 **  
+**How to run the example for GSE13168**  
 This example was validated on a mac and AMI Linux terminals  
 
 Prerequistes:  
@@ -28,7 +28,7 @@ Steps:
 7. You should see the newly generated mapping file GSE13168_Mapping.csv.  Using this and the associated data filee you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
-** Mapping Generators Flags **
+**Mapping Generators Flags**    
 *-datafile*  
 Location of the data file you wish to generate a mapping file for.  
 Example:  
