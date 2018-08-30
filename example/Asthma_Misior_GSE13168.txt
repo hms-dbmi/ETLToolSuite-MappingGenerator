@@ -1,0 +1,55 @@
+STUDY_ID	SUBJ_ID	SAMPLE_ID	Cell Phenotype	Timepoint	Stimulant	Cell Culture Pretreatment	OMIT	Tissue	Sample Source	OMIT
+-1000.947	Donor_G_1	GSM332913	GFP Expressing (Control)	Baseline	None	No treatment	basal	Smooth muscle	Trachea	GFP_basal_donor1
+-1000.947	Donor_G_2	GSM332914	GFP Expressing (Control)	Baseline	None	No treatment	basal	Smooth muscle	Trachea	GFP_basal_donor2
+-1000.947	Donor_G_3	GSM332915	GFP Expressing (Control)	Baseline	None	No treatment	basal	Smooth muscle	Trachea	GFP_basal_donor3
+-1000.947	Donor_G_4	GSM332916	GFP Expressing (Control)	Baseline	None	No treatment	basal	Smooth muscle	Trachea	GFP_basal_donor4
+-1000.947	Donor_G_1	GSM332917	GFP Expressing (Control)	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	GFP_E+I_donor1
+-1000.947	Donor_G_2	GSM332918	GFP Expressing (Control)	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	GFP_E+I_donor2
+-1000.947	Donor_G_3	GSM332919	GFP Expressing (Control)	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	GFP_E+I_donor3
+-1000.947	Donor_G_4	GSM332920	GFP Expressing (Control)	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	GFP_E+I_donor4
+-1000.947	Donor_G_1	GSM332921	GFP Expressing (Control)	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	GFP_EGF_donor1
+-1000.947	Donor_G_2	GSM332922	GFP Expressing (Control)	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	GFP_EGF_donor2
+-1000.947	Donor_G_3	GSM332923	GFP Expressing (Control)	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	GFP_EGF_donor3
+-1000.947	Donor_G_4	GSM332924	GFP Expressing (Control)	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	GFP_EGF_donor4
+-1000.947	Donor_G_2	GSM332925	GFP Expressing (Control)	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	GFP_Flu_donor2
+-1000.947	Donor_G_3	GSM332926	GFP Expressing (Control)	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	GFP_Flu_donor3
+-1000.947	Donor_G_4	GSM332927	GFP Expressing (Control)	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	GFP_Flu_donor4
+-1000.947	Donor_G_2	GSM332928	GFP Expressing (Control)	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	GFP_Flu+E+I_donor2
+-1000.947	Donor_G_3	GSM332929	GFP Expressing (Control)	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	GFP_Flu+E+I_donor3
+-1000.947	Donor_G_4	GSM332930	GFP Expressing (Control)	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	GFP_Flu+E+I_donor4
+-1000.947	Donor_G_2	GSM332931	GFP Expressing (Control)	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	GFP_Flu+EGF_donor2
+-1000.947	Donor_G_3	GSM332932	GFP Expressing (Control)	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	GFP_Flu+EGF_donor3
+-1000.947	Donor_G_4	GSM332933	GFP Expressing (Control)	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	GFP_Flu+EGF_donor4
+-1000.947	Donor_G_2	GSM332934	GFP Expressing (Control)	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	GFP_Flu+IL1b_donor2
+-1000.947	Donor_G_3	GSM332935	GFP Expressing (Control)	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	GFP_Flu+IL1b_donor3
+-1000.947	Donor_G_4	GSM332936	GFP Expressing (Control)	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	GFP_Flu+IL1b_donor4
+-1000.947	Donor_G_2	GSM332937	GFP Expressing (Control)	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	GFP_IL1b_donor2
+-1000.947	Donor_G_3	GSM332938	GFP Expressing (Control)	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	GFP_IL1b_donor3
+-1000.947	Donor_G_4	GSM332939	GFP Expressing (Control)	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	GFP_IL1b_donor4
+-1000.947	Donor_PKI_1	GSM332940	PKI-GFP Expressing	Baseline	None	No treatment	basal	Smooth muscle	Trachea	PKI_basal_donor1
+-1000.947	Donor_PKI_2	GSM332941	PKI-GFP Expressing	Baseline	None	No treatment	basal	Smooth muscle	Trachea	PKI_basal_donor2
+-1000.947	Donor_PKI_3	GSM332942	PKI-GFP Expressing	Baseline	None	No treatment	basal	Smooth muscle	Trachea	PKI_basal_donor3
+-1000.947	Donor_PKI_4	GSM332943	PKI-GFP Expressing	Baseline	None	No treatment	basal	Smooth muscle	Trachea	PKI_basal_donor4
+-1000.947	Donor_PKI_1	GSM332944	PKI-GFP Expressing	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	PKI_E+I_donor1
+-1000.947	Donor_PKI_2	GSM332945	PKI-GFP Expressing	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	PKI_E+I_donor2
+-1000.947	Donor_PKI_3	GSM332946	PKI-GFP Expressing	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	PKI_E+I_donor3
+-1000.947	Donor_PKI_4	GSM332947	PKI-GFP Expressing	8 hours	EGF and IL-1b	No treatment	8h EGF+IL-1b	Smooth muscle	Trachea	PKI_E+I_donor4
+-1000.947	Donor_PKI_1	GSM332948	PKI-GFP Expressing	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	PKI_EGF_donor1
+-1000.947	Donor_PKI_2	GSM332949	PKI-GFP Expressing	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	PKI_EGF_donor2
+-1000.947	Donor_PKI_3	GSM332950	PKI-GFP Expressing	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	PKI_EGF_donor3
+-1000.947	Donor_PKI_4	GSM332951	PKI-GFP Expressing	8 hours	EGF	No treatment	8h EGF	Smooth muscle	Trachea	PKI_EGF_donor4
+-1000.947	Donor_PKI_2	GSM332952	PKI-GFP Expressing	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	PKI_Flu_donor2
+-1000.947	Donor_PKI_3	GSM332953	PKI-GFP Expressing	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	PKI_Flu_donor3
+-1000.947	Donor_PKI_4	GSM332954	PKI-GFP Expressing	Baseline	None	Fluticasone	30 min Flu pretx	Smooth muscle	Trachea	PKI_Flu_donor4
+-1000.947	Donor_PKI_2	GSM332955	PKI-GFP Expressing	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	PKI_Flu+E+I_donor2
+-1000.947	Donor_PKI_3	GSM332956	PKI-GFP Expressing	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	PKI_Flu+E+I_donor3
+-1000.947	Donor_PKI_4	GSM332957	PKI-GFP Expressing	8 hours	EGF and IL-1b	Fluticasone	30 min Flu pretx and 8h EGF+IL-1b	Smooth muscle	Trachea	PKI_Flu+E+I_donor4
+-1000.947	Donor_PKI_2	GSM332958	PKI-GFP Expressing	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	PKI_Flu+EGF_donor2
+-1000.947	Donor_PKI_3	GSM332959	PKI-GFP Expressing	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	PKI_Flu+EGF_donor3
+-1000.947	Donor_PKI_4	GSM332960	PKI-GFP Expressing	8 hours	EGF	Fluticasone	30 min Flu pretx and 8h EGF	Smooth muscle	Trachea	PKI_Flu+EGF_donor4
+-1000.947	Donor_PKI_2	GSM332961	PKI-GFP Expressing	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	PKI_Flu+IL1b_donor2
+-1000.947	Donor_PKI_3	GSM332962	PKI-GFP Expressing	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	PKI_Flu+IL1b_donor3
+-1000.947	Donor_PKI_4	GSM332963	PKI-GFP Expressing	8 hours	IL-1b	Fluticasone	30 min Flu pretx and 8h IL-1b	Smooth muscle	Trachea	PKI_Flu+IL1b_donor4
+-1000.947	Donor_PKI_2	GSM332964	PKI-GFP Expressing	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	PKI_IL1b_donor2
+-1000.947	Donor_PKI_3	GSM332965	PKI-GFP Expressing	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	PKI_IL1b_donor3
+-1000.947	Donor_PKI_4	GSM332966	PKI-GFP Expressing	8 hours	IL-1b	No treatment	8h IL-1b	Smooth muscle	Trachea	PKI_IL1b_donor4
