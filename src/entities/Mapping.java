@@ -297,4 +297,8 @@ public class Mapping {
 		list.add(this.options);
 		return list.toArray(new String[0]);
 	}
+
+	public static Mapping makeHeaders() {
+		return new Mapping("key","Concept Path","Supplement Path","Data Type","Options");
+	}
 }

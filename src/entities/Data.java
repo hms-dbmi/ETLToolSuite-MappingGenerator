@@ -264,6 +264,8 @@ public class Data {
 			
 			throw new Exception("Data file " + dataURI + " does not exist or is unreachable!");
 		}
+		mappings.add(0,Mapping.makeHeaders());
+
 		return mappings;
 	}
 
@@ -274,6 +276,8 @@ public class Data {
 			mappings.add(new Mapping(d.getFileName() + ":" + d.getColIndex(), d.getDataLabel(), "", d.getDataType(), ""));
 			
 		}
+		mappings.add(0,Mapping.makeHeaders());
+
 		return mappings;
 	}
 
