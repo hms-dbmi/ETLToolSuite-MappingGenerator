@@ -57,17 +57,17 @@ Example:
 `java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafilehasheaders N`  
 
 *-datafileanalyze*  
-Will analyze the data to determine its generic data type ( numeric or text ).  
-Analyze uses following algorithm to weigh its logic:
-Groups all values by its concept ( column ).
-Analyzes each value to determine if it numeric.
-If numeric values total a percentage higher than the numeric threshold ( default 85% ) it will assign it as numeric.
-Default value = N.
-Example: 
-`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafileanalyze Y`
+Will analyze the data to determine its generic data type ( numeric or text ).   
+Analyze uses following algorithm to weigh its logic:  
+Groups all values by its concept ( column ).  
+Analyzes each value to determine if it numeric.   
+If numeric values total a percentage higher than the numeric threshold ( default 85% ) it will assign it as numeric.   
+Default value = N.  
+Example:    
+`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafileanalyze Y`   
 
-*-analyzethreshold*
-You can override the numeric threshold for the analyze algorithm here.
-Example:
-`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv-datafileanalyze Y -analyzethreshold .90`
+*-analyzethreshold*    
+You can override the numeric threshold for the analyze algorithm here.    
+Example:    
+`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv-datafileanalyze Y -analyzethreshold .90`     
 
