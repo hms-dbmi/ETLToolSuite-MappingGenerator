@@ -5,43 +5,56 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import analyzers.DataAnalyzer;
 import entities.Mapping;
+import entities.PatientMapping;
+
+import interactive.Dialogue;
 import writers.MappingWriter;
 import entities.Data;
 
 public class Driver {
 
-	private static String MAPPING_FILE = "";
+	public static String MAPPING_FILE = "";
 
-	private static String DESTINATION_MAPPING_FILE = "";
+	public static String DESTINATION_MAPPING_FILE = "";
 	
-	private static char MAPPING_DELIMITER = ',';
+	public static char MAPPING_DELIMITER = ',';
 
-	private static char MAPPING_QUOTED_STRING = '"';
+	public static char MAPPING_QUOTED_STRING = '"';
 
-	private static boolean MAPPING_SKIP_HEADER = false;
+	public static boolean MAPPING_SKIP_HEADER = false;
 
-	private static String DATA_FILE = "";
+	public static String DATA_FILE = "";
 	
-	private static char DATA_FILE_DELIMITER = ',';
+	public static char DATA_FILE_DELIMITER = ',';
 	
-	private static char DATA_FILE_QUOTED_STRING = '"';
+	public static char DATA_FILE_QUOTED_STRING = '"';
 	
-	private static boolean DATA_FILE_HAS_HEADERS = true;
+	public static boolean DATA_FILE_HAS_HEADERS = true;
 	
-	private static boolean DATA_FILE_ANALYZE = false;
+	public static boolean DATA_FILE_ANALYZE = false;
+	
+
 	
 	
 	public static void main(String[] args) throws Exception {
 		processArguments(args);
+		
+		Dialogue.checkArgs(args);
+		
+		List<Data> dataListHeaders = buildDataListHeaders();
+		
+		validateConfig();
+		
 		// read mapping file if given
 		List<Mapping> mappings = MAPPING_FILE == null || MAPPING_FILE.isEmpty() ? new ArrayList<Mapping>(): generateMapping();
 		
 		// read data file 
-		List<Data> dataListHeaders = buildDataListHeaders();
 		
 		if(!DATA_FILE_ANALYZE) {
 			
@@ -49,6 +62,7 @@ public class Driver {
 			
 		} 
 		
+		List<PatientMapping> patientMappings = new ArrayList<PatientMapping>();
 		// do data type analysis
 		if(DATA_FILE_ANALYZE) {
 			// will update all mappings data type to a specific data type
@@ -57,13 +71,31 @@ public class Driver {
 			DataAnalyzer.analyze(fullData);
 			
 			mappings = Data.generateMappingList(fullData);
+			
+			patientMappings = Dialogue.checkPatientArgs(args, dataListHeaders);
+
 		}
 		
 		// print new mapping file
 		MappingWriter.printMappingFile(DESTINATION_MAPPING_FILE, MAPPING_DELIMITER, MAPPING_QUOTED_STRING, mappings);
-		
+		MappingWriter.printPatientMappingFile(DESTINATION_MAPPING_FILE + ".patient", MAPPING_DELIMITER, MAPPING_QUOTED_STRING, patientMappings);
+
 	}
 	
+
+
+	private static void validateConfig() {
+		try {
+			if(DATA_FILE.isEmpty()) {
+				throw new Exception("Data file must be entered!");
+			}
+		
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+	}
+
 	private static void printMappingFile(List<Mapping> mappings) {
 		// TODO Auto-generated method stub
 		
@@ -75,7 +107,7 @@ public class Driver {
 			return Data.buildDataListHeaders(DATA_FILE, DATA_FILE_HAS_HEADERS, DATA_FILE_DELIMITER, DATA_FILE_QUOTED_STRING);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println(e.getMessage());;
 		}	
 		return new ArrayList<Data>();
 	}
@@ -118,7 +150,7 @@ public class Driver {
 			} else if (arg.equalsIgnoreCase( "-mappingskipheader" )) {
 			
 				MAPPING_SKIP_HEADER = checkPassedArgs(arg, args).equalsIgnoreCase("Y") || checkPassedArgs(arg, args).equalsIgnoreCase("YES") ? true : false;
-			
+				
 			} else if (arg.equalsIgnoreCase( "-datafile" )) {
 			
 				DATA_FILE = checkPassedArgs(arg, args);
@@ -181,7 +213,7 @@ public class Driver {
 				
 			}
 		} catch (Exception e) {
-			e.printStackTrace();;
+			System.err.println(e.getMessage());;
 		}
 		return argv;
 

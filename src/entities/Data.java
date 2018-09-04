@@ -2,11 +2,16 @@ package entities;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import com.opencsv.CSVReader;
 
@@ -100,128 +105,152 @@ public class Data {
 	public static List<Data> buildDataListHeaders(String dataURI, boolean dataFileHasHeaders,
 			char dataFileDelimiter, char dataFileQuotedString) throws Exception {
 		List<Data> dataList = new ArrayList<Data>();
+			
+		File file = new File(dataURI);
 		
-		if(dataFileHasHeaders) {
+		if(file.exists()) {
+		
+			if(file.isDirectory()) {
 			
-			File file = new File(dataURI);
-			
-			if(file.exists()) {
-			
-				if(file.isDirectory()) {
-				
-				} else {
-					
-					String fileName = file.getName();
-					
-					CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
-					if(dataFileHasHeaders) {
-						
-						String[] headers = csvReader.readNext();
-						int colNum = 0;
-						
-						for(String header:headers) {
-							
-							Data data = new Data(fileName, header, "", colNum, new ArrayList<DataRecord>());
-							dataList.add(data);
-							colNum++;
-							
-						}
-						
-					} else {
-						// just use Column index as data Label
-						String[] firstRow = csvReader.readNext();
-						int colNum = 0;
-						
-						for(String row:firstRow) {
-							
-							Data data = new Data(fileName, "COLUMN " + colNum, "", colNum, new ArrayList<DataRecord>());
-							dataList.add(data);
-							colNum++;
-							
-						}
-					}
+				for(File f: file.listFiles()) {
+					dataList.addAll(buildDataHeader(f, dataFileDelimiter, dataFileQuotedString, dataFileHasHeaders));
 				}
-			} else {
 				
-				throw new Exception("Data file/dir " + dataURI + " does not exist or is unreachable!");
-			
+			} else {
+				dataList.addAll(buildDataHeader(file, dataFileDelimiter, dataFileQuotedString, dataFileHasHeaders));
+
 			}
+		} else {
 			
+			throw new Exception("Data file/dir " + dataURI + " does not exist or is unreachable!");
+		
+		
+		
 		} 
 
 		return dataList;
 		
 	}
 	
+	private static Collection<? extends Data> buildDataHeader(File file, char dataFileDelimiter, char dataFileQuotedString, boolean dataFileHasHeaders) throws IOException {
+		List<Data> dataList = new ArrayList<Data>();
+		String fileName = file.getName();
+		
+		CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
+		if(dataFileHasHeaders) {
+			
+			String[] headers = csvReader.readNext();
+			int colNum = 0;
+			
+			for(String header:headers) {
+				
+				Data data = new Data(fileName, header, "", colNum, new ArrayList<DataRecord>());
+				dataList.add(data);
+				colNum++;
+				
+			}
+			
+		} else {
+			// just use Column index as data Label
+			String[] firstRow = csvReader.readNext();
+			int colNum = 0;
+			
+			for(String row:firstRow) {
+				
+				Data data = new Data(fileName, "COLUMN " + colNum, "", colNum, new ArrayList<DataRecord>());
+				dataList.add(data);
+				colNum++;
+				
+			}
+		}
+		return dataList;
+	}
+
 	public static List<Data> buildDataList(String dataURI, boolean dataFileHasHeaders,
 			char dataFileDelimiter, char dataFileQuotedString) throws Exception {
 		List<Data> dataList = new ArrayList<Data>();
+			
+		File file = new File(dataURI);
 		
-		if(dataFileHasHeaders) {
+		if(file.exists()) {
 			
-			File file = new File(dataURI);
-			
-			if(file.exists()) {
-				String fileName = file.getName();
-				CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
+			if(file.isDirectory()) {
 				
-				String[] headers;
-				
-				if(dataFileHasHeaders) {
-					
-					headers = csvReader.readNext();
-					
-				} else {
-					String[] firstRow = csvReader.readNext();
-					int colNum = 0;
-					List<String> l = new ArrayList<String>();
-					for(String row:firstRow) {
-						
-						l.add(colNum, row);
-						colNum++;
-						
-					}
-					headers = l.toArray(new String[0]);
-				}
-				csvReader.close();
-				
-				csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
-				int rowIndex = 0;
-				Iterator<String[]> iter = csvReader.iterator();
-				while(iter.hasNext()) {
-					
-					String[] rec = iter.next();
-					
-					int colIndex = 0;
-					
-					for(String cell: rec) {
-						
-						Data d = null;
-						if(dataList.isEmpty() || dataList.size() == colIndex) {
-							dataList.add(new Data(fileName, headers[colIndex], "", colIndex, new ArrayList<DataRecord>()));								
-						} else if(dataList.size() > colIndex){
-							dataList.get(colIndex).getDataRecords().add(new DataRecord(rowIndex, colIndex, cell));							
-						} else if(dataList.size() - 1 == colIndex) {
-							dataList.get(colIndex).getDataRecords().add(new DataRecord(rowIndex, colIndex, cell));
-						}
-
-						colIndex++;
-					}
-					
-					rowIndex++;
+				for(File f: file.listFiles()) {
+					dataList.addAll(buildData(f, dataFileDelimiter, dataFileQuotedString, dataFileHasHeaders));
 				}
 				
 			} else {
-				
-				throw new Exception("Data file/dir " + dataURI + " does not exist or is unreachable!");
-			
+				dataList.addAll(buildData(file, dataFileDelimiter, dataFileQuotedString, dataFileHasHeaders));
+
 			}
 			
-		} 
+		} else {
+			
+			throw new Exception("Data file/dir " + dataURI + " does not exist or is unreachable!");
+		
+		}
 
 		return dataList;
 		
 	}
+	private static Collection<? extends Data> buildData(File file, char dataFileDelimiter, char dataFileQuotedString,
+			boolean dataFileHasHeaders) throws IOException {
+		String fileName = file.getName();
+		
+		List<Data> dataList = new ArrayList<Data>();
+		
+		CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
+		
+		String[] headers;
+		
+		if(dataFileHasHeaders) {
+			
+			headers = csvReader.readNext();
+			
+		} else {
+			String[] firstRow = csvReader.readNext();
+			int colNum = 0;
+			List<String> l = new ArrayList<String>();
+			for(String row:firstRow) {
+				
+				l.add(colNum, row);
+				colNum++;
+				
+			}
+			headers = l.toArray(new String[0]);
+		}
+		csvReader.close();
+		
+		csvReader = new CSVReader(new BufferedReader(new FileReader(file)), dataFileDelimiter, dataFileQuotedString);
+		int rowIndex = 0;
+		Iterator<String[]> iter = csvReader.iterator();
+		while(iter.hasNext()) {
+			
+			String[] rec = iter.next();
+			
+			int colIndex = 0;
+			
+			for(String cell: rec) {
+				
+				Data d = null;
+				if(dataList.isEmpty() || dataList.size() == colIndex) {
+					dataList.add(new Data(fileName, headers[colIndex], "", colIndex, new ArrayList<DataRecord>()));								
+				} else if(dataList.size() > colIndex){
+					dataList.get(colIndex).getDataRecords().add(new DataRecord(rowIndex, colIndex, cell));							
+				} else if(dataList.size() - 1 == colIndex) {
+					dataList.get(colIndex).getDataRecords().add(new DataRecord(rowIndex, colIndex, cell));
+				}
+
+				colIndex++;
+			}
+			
+			rowIndex++;
+		}
+		
+		return dataList;
+	}
+
 	public static List<Mapping> generateMappingList(String dataURI, List<Data> dataList) throws Exception {
 		File file = new File(dataURI);
 		List<Mapping> mappings = new ArrayList<Mapping>();
@@ -280,6 +309,8 @@ public class Data {
 
 		return mappings;
 	}
+
+
 
 	
 }

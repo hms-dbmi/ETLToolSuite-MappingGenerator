@@ -5,7 +5,6 @@ Author: Thomas DeSain
 Used to generate mapping files for I2B2TM ETL processes.  
 ***
 **How to run the example for GSE13168**  
-This example was validated on a mac and AMI Linux terminals  
 
 Prerequistes:  
 git  
@@ -13,6 +12,7 @@ Java8
 admin rights on the machine  
 ***  
 Steps:  
+This example was validated on a mac and AMI Linux terminal  
 
 1. sudo su  
 2. use git to clone this project to a dir of your choosing.  
