@@ -53,16 +53,17 @@ public class Driver {
 		
 		// read mapping file if given
 		List<Mapping> mappings = MAPPING_FILE == null || MAPPING_FILE.isEmpty() ? new ArrayList<Mapping>(): generateMapping();
-		
+		List<PatientMapping> patientMappings = new ArrayList<PatientMapping>();
+
 		// read data file 
-		
+
 		if(!DATA_FILE_ANALYZE) {
 			
 			mappings = Data.generateMappingList(DATA_FILE, dataListHeaders);
-			
+			patientMappings = Dialogue.checkPatientArgs(args, dataListHeaders);
+
 		} 
 		
-		List<PatientMapping> patientMappings = new ArrayList<PatientMapping>();
 		// do data type analysis
 		if(DATA_FILE_ANALYZE) {
 			// will update all mappings data type to a specific data type

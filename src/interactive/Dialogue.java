@@ -83,7 +83,7 @@ public class Dialogue {
 			if(promptF.equals("-datafileanalyze")){
 				System.out.print(datafileanalyzediag);
 				String in = reader.nextLine();
-				Driver.DATA_FILE_ANALYZE = in.charAt(0) =='Y' || in.charAt(0) == 'y' ? true : false;
+				Driver.DATA_FILE_ANALYZE = in.length() >  0 && ( in.charAt(0) =='Y' || in.charAt(0) == 'y' )? true : false;
 			}
 			
 			//case "-analyzethreshold":System.out.println(analyzethresholddiag);
