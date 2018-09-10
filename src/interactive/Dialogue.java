@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import drivers.Driver;
 import entities.Data;
-import entities.PatientMapping;
+import entities.PatientMapping2;
 
 public class Dialogue {
 	public static String patientfilediag = "Enter the path to data file that contains patient demographics: ";
@@ -108,22 +108,23 @@ public class Dialogue {
 	}
 
 
-	public static List<PatientMapping> checkPatientArgs(String[] args, List<Data> dataListHeaders) {
+	public static List<PatientMapping2> checkPatientArgs(String[] args, List<Data> dataListHeaders) {
 		List<String> argsL = new ArrayList<String>(Arrays.asList(args));
-		List<PatientMapping> mappings = new ArrayList<PatientMapping>();
+		List<PatientMapping2> mappings = new ArrayList<PatientMapping2>();
 
 		for(String promptF: promptFields) {
 			if(!argsL.contains(promptF)) {
 				mappings.addAll(runPatientDialogue(promptF, dataListHeaders));
 			}
+							
 		}
 		return mappings;
 	}
 
 
-	private static List<PatientMapping> runPatientDialogue(String promptF, List<Data> dataListHeaders) {
+	private static List<PatientMapping2> runPatientDialogue(String promptF, List<Data> dataListHeaders) {
 		Scanner reader = new Scanner(System.in);
-		List<PatientMapping> mappings = new ArrayList<PatientMapping>();
+		List<PatientMapping2> mappings = new ArrayList<PatientMapping2>();
 		//switch(promptF) {
 		boolean multifile = false;
 		if(promptF.equals("-patientfile")){
@@ -135,18 +136,18 @@ public class Dialogue {
 					multifile = true;
 				} else {
 					System.out.print(patientfilediag);
-					PatientMapping.FILE_NAME = reader.nextLine();
+					PatientMapping2.FILE_NAME = reader.nextLine();
 
 				}
 								
 			} else {
-				PatientMapping.FILE_NAME = Driver.DATA_FILE;
+				PatientMapping2.FILE_NAME = new File(Driver.DATA_FILE).getName();
 			}
 			
 		}
 		
 		if(promptF.equals("-patientidcol")){
-			PatientMapping pm = new PatientMapping();
+			PatientMapping2 pm = new PatientMapping2();
 			if(multifile) {
 				
 				System.out.println("Enter path to file containing all patient ids: ");
@@ -157,7 +158,7 @@ public class Dialogue {
 					in = reader.nextLine();
 					
 				} 
-				PatientMapping.FILE_NAME = reader.nextLine();
+				PatientMapping2.FILE_NAME = reader.nextLine();
 			}
 			
 			System.out.print(patientiddiag);
@@ -173,21 +174,21 @@ public class Dialogue {
 				}
 			}
 			if(isInt) {
-				PatientMapping.PATIENT_ID_COL = in;
+				PatientMapping2.PATIENT_ID_COL = new Integer( new Integer(in) - 1 ).toString();
 			} else {
 				for(Data d: dataListHeaders) {
 					if(d.getDataLabel().equalsIgnoreCase(in)) {
-						PatientMapping.PATIENT_ID_COL = new Integer(d.getColIndex()).toString();
+						PatientMapping2.PATIENT_ID_COL = new Integer(d.getColIndex()).toString();
 					}
 				}
 			}
-			pm.setFileName(PatientMapping.FILE_NAME);
-			pm.setPatId(new Integer(PatientMapping.PATIENT_ID_COL).toString());
-			mappings.add(pm);
+			pm.setPatientKey(PatientMapping2.FILE_NAME + ':' + PatientMapping2.PATIENT_ID_COL);
+			pm.setPatientColumn("PatientNum");
+			if(!in.isEmpty()) mappings.add(pm);
 			
 		} else if(promptF.equals("-patientagecol")){
 
-			PatientMapping pm = new PatientMapping();
+			PatientMapping2 pm = new PatientMapping2();
 			if(multifile) {
 				
 				System.out.println("Enter path to file containing patient age: ");
@@ -198,7 +199,7 @@ public class Dialogue {
 					in = reader.nextLine();
 					
 				} 
-				PatientMapping.FILE_NAME = reader.nextLine();
+				PatientMapping2.FILE_NAME = reader.nextLine();
 			}
 			
 			System.out.print(patientagediag);
@@ -213,21 +214,21 @@ public class Dialogue {
 				}
 			}
 			if(isInt) {
-				PatientMapping.PATIENT_AGE_COL = in;
+				PatientMapping2.PATIENT_AGE_COL = new Integer( new Integer(in) - 1 ).toString();;
 			} else {
 				for(Data d: dataListHeaders) {
 					if(d.getDataLabel().equalsIgnoreCase(in)) {
-						PatientMapping.PATIENT_AGE_COL = new Integer(d.getColIndex()).toString();
+						PatientMapping2.PATIENT_AGE_COL = new Integer(d.getColIndex()).toString();
 					}
 				}
 			}
-			pm.setFileName(PatientMapping.FILE_NAME);
-			pm.setAgeCol(PatientMapping.PATIENT_AGE_COL.toString());
-			mappings.add(pm);
+			pm.setPatientKey(PatientMapping2.FILE_NAME + ':' + PatientMapping2.PATIENT_AGE_COL);
+			pm.setPatientColumn("ageInYearsNum");
+			if(!in.isEmpty()) mappings.add(pm);
 			
 		} else if(promptF.equals("-patientgendercol")){
 
-			PatientMapping pm = new PatientMapping();
+			PatientMapping2 pm = new PatientMapping2();
 			if(multifile) {
 				
 				System.out.println("Enter path to file containing patient gender/sex: ");
@@ -238,7 +239,7 @@ public class Dialogue {
 					in = reader.nextLine();
 					
 				} 
-				PatientMapping.FILE_NAME = reader.nextLine();
+				PatientMapping2.FILE_NAME = reader.nextLine();
 			}
 			
 			System.out.print(patientgenderdiag);
@@ -254,17 +255,17 @@ public class Dialogue {
 				}
 			}
 			if(isInt) {
-				PatientMapping.PATIENT_GENDER_COL = in;
+				PatientMapping2.PATIENT_GENDER_COL = new Integer( new Integer(in) - 1 ).toString();
 			} else {
 				for(Data d: dataListHeaders) {
 					if(d.getDataLabel().equalsIgnoreCase(in)) {
-						PatientMapping.PATIENT_GENDER_COL = new Integer(d.getColIndex()).toString();
+						PatientMapping2.PATIENT_GENDER_COL = new Integer(d.getColIndex()).toString();
 					}
 				}
 			}
-			pm.setFileName(PatientMapping.FILE_NAME);
-			pm.setSexCol(PatientMapping.PATIENT_GENDER_COL);
-			mappings.add(pm);
+			pm.setPatientKey(PatientMapping2.FILE_NAME + ':' + PatientMapping2.PATIENT_GENDER_COL);
+			pm.setPatientColumn("sexCD");
+			if(!in.isEmpty()) mappings.add(pm);
 			
 		} else if(promptF.equals("-patientracecol")){
 			
@@ -278,12 +279,12 @@ public class Dialogue {
 					in = reader.nextLine();
 					
 				} 
-				PatientMapping.FILE_NAME = reader.nextLine();
+				PatientMapping2.FILE_NAME = reader.nextLine();
 			}
 			
 			System.out.print(patientracediag);
 			String in = reader.nextLine();
-			PatientMapping pm = new PatientMapping();
+			PatientMapping2 pm = new PatientMapping2();
 
 			boolean isInt = false;
 			for(char c: in.toCharArray()) {
@@ -295,17 +296,18 @@ public class Dialogue {
 				}
 			}
 			if(isInt) {
-				PatientMapping.PATIENT_RACE_COL = in;
+				PatientMapping2.PATIENT_RACE_COL = new Integer( new Integer(in) - 1 ).toString();
 			} else {
 				for(Data d: dataListHeaders) {
 					if(d.getDataLabel().equalsIgnoreCase(in)) {
-						PatientMapping.PATIENT_RACE_COL = new Integer(d.getColIndex()).toString();
+						PatientMapping2.PATIENT_RACE_COL = new Integer(d.getColIndex()).toString();
 					}
 				}
 			}
-			pm.setFileName(PatientMapping.FILE_NAME);
-			pm.setRaceCol(PatientMapping.PATIENT_RACE_COL);
-			mappings.add(pm);
+			pm.setPatientKey(PatientMapping2.FILE_NAME + ':' + PatientMapping2.PATIENT_GENDER_COL);
+			pm.setPatientColumn("raceCD");
+			
+			if(!in.isEmpty()) mappings.add(pm);
 			
 		}
 		return mappings;

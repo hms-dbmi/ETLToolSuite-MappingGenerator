@@ -16,7 +16,7 @@ This example was validated on a mac and AMI Linux terminal
 
 1. sudo su  
 2. use git to clone this project to a dir of your choosing.  
-`git clone https://username@github.com/hms-dbmi/ETLToolSuite-MappingGenerator`  
+`git clone https://github.com/hms-dbmi/ETLToolSuite-MappingGenerator`  
 3. cd to root directory:  
 `cd ETLToolSuite-MappingGenerator`   
 4. execute following code block:  
@@ -25,10 +25,10 @@ This example was validated on a mac and AMI Linux terminal
 `cd example`  
 6. list the directory's contents.  
 `ls -la`  
-7. You should see the newly generated mapping file GSE13168_Mapping.csv.  Using this and the associated data filee you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
+7. You should see the newly generated mapping files GSE13168_Mapping.csv and GSE13168_Mapping.csv.patient.  Using this and the associated data file you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
-**Mapping Generators Flags**    
+**Mapping Generator Flags**    
 *-datafile*  
 Location of the data file you wish to generate a mapping file for.  
 Example:  

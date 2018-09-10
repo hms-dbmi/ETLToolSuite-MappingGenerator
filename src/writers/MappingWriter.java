@@ -9,7 +9,7 @@ import java.util.Set;
 import com.opencsv.CSVWriter;
 
 import entities.Mapping;
-import entities.PatientMapping;
+import entities.PatientMapping2;
 
 public class MappingWriter {
 
@@ -30,14 +30,14 @@ public class MappingWriter {
 		
 	}
 	
-	public static void printPatientMappingFile(String mappingWriteURI, char mappingWriteDelimiter, char mappingQuoteChar, List<PatientMapping> mappings) throws IOException {
+	public static void printPatientMappingFile(String mappingWriteURI, char mappingWriteDelimiter, char mappingQuoteChar, List<PatientMapping2> mappings) throws IOException {
 		
 		File file = new File(mappingWriteURI);
 		
 		//if(file.canWrite()) {
 			CSVWriter csvWriter = new CSVWriter(new FileWriter(file), mappingWriteDelimiter, mappingQuoteChar);
 			
-			for(PatientMapping mapping: mappings) {
+			for(PatientMapping2 mapping: mappings) {
 				csvWriter.writeNext(mapping.toStringArray());
 			}
 			

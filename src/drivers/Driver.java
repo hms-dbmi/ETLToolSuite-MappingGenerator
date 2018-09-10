@@ -11,8 +11,7 @@ import java.util.Set;
 
 import analyzers.DataAnalyzer;
 import entities.Mapping;
-import entities.PatientMapping;
-
+import entities.PatientMapping2;
 import interactive.Dialogue;
 import writers.MappingWriter;
 import entities.Data;
@@ -53,7 +52,7 @@ public class Driver {
 		
 		// read mapping file if given
 		List<Mapping> mappings = MAPPING_FILE == null || MAPPING_FILE.isEmpty() ? new ArrayList<Mapping>(): generateMapping();
-		List<PatientMapping> patientMappings = new ArrayList<PatientMapping>();
+		List<PatientMapping2> patientMappings = new ArrayList<PatientMapping2>();
 
 		// read data file 
 
