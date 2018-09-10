@@ -11,6 +11,10 @@ git
 Java8  
 admin rights on the machine  
 ***  
+Overview:
+This will be a simple walkthrough to load the example data contained in the MappingGenerator project.
+Similar steps can be used to process other CSV data.
+
 Steps:  
 This example was validated on a mac and AMI Linux terminal  
 
@@ -20,12 +24,19 @@ This example was validated on a mac and AMI Linux terminal
 3. cd to root directory:  
 `cd ETLToolSuite-MappingGenerator`   
 4. execute following code block:  
-`java -jar MappingGenerator.jar -destinationmappingfile ./example/GSE13168_Mapping.csv -datafile ./example/Asthma_Misior_GSE13168.txt -datafiledelimiter TAB -datafileanalyze Y`  
-5. cd to example dir  
+`java -jar MappingGenerator.jar -datafile ./example/Asthma_Misior_GSE13168.txt -datafiledelimiter TAB -datafileanalyze Y`  
+5. Enter the value **SUBJ_ID** when prompted "Enter the column that holds patient identifier: " 
+`SUBJ_ID`
+6. Enter the value **CurrentAge** when prompted "Enter the column that holds patients age: "
+`CurrentAge`
+7. Press enter to skip when prompted "Enter the column that holds patient's gender: " as test data does not have gender information.
+8. Press enter to skip when prompted "Enter the column that holds patient's race: " as test data does not have race information.
+9. Mapping Generator will now run.
+10. cd to example dir 
 `cd example`  
-6. list the directory's contents.  
+11. list the directory's contents.  
 `ls -la`  
-7. You should see the newly generated mapping files GSE13168_Mapping.csv and GSE13168_Mapping.csv.patient.  Using this and the associated data file you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
+12. You should see the newly generated mapping files mapping.csv and mapping.csv.patient.  Using this and the associated data file you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
 **Mapping Generator Flags**    
