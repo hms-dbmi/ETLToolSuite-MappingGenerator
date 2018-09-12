@@ -79,7 +79,8 @@ public class Driver {
 		// print new mapping file
 		MappingWriter.printMappingFile(DESTINATION_MAPPING_FILE, MAPPING_DELIMITER, MAPPING_QUOTED_STRING, mappings);
 		MappingWriter.printPatientMappingFile(DESTINATION_MAPPING_FILE + ".patient", MAPPING_DELIMITER, MAPPING_QUOTED_STRING, patientMappings);
-
+		System.out.println("Mapping Files Generated.");
+		
 	}
 	
 
