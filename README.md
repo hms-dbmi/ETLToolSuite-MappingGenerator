@@ -24,7 +24,10 @@ This example was validated on a mac and AMI Linux terminal
 3. cd to root directory:  
 `cd ETLToolSuite-MappingGenerator`   
 4. execute following code block:  
-`java -jar MappingGenerator.jar -datafile ./example/Asthma_Misior_GSE13168.txt -datafiledelimiter TAB -datafileanalyze Y`  
+`java -jar MappingGenerator.jar -datafile ./example/Asthma_Misior_GSE13168.txt -datafileanalyze Y`
+5. Press enter to leave delimiter as comma by default when prompted "Enter the delimiter used in data file(s) ( tab/comma/other default=comma ): "
+6. Enter the value **example** when prompted "Enter the path to your destination directory (default=working dir): "
+`example` 
 5. Enter the value **SUBJ_ID** when prompted "Enter the column that holds patient identifier: " 
 `SUBJ_ID`
 6. Enter the value **CurrentAge** when prompted "Enter the column that holds patients age: "
@@ -83,5 +86,5 @@ Example:
 *-analyzethreshold*    
 You can override the numeric threshold for the analyze algorithm here.    
 Example:    
-`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv-datafileanalyze Y -analyzethreshold .90`     
+`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafileanalyze Y -analyzethreshold .90`     
 
