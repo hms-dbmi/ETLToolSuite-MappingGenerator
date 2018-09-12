@@ -42,12 +42,13 @@
             <src path="resources"/>
             <classpath refid="classpath"/>
         </javac>
+      	<jar destfile="MappingGenerator.jar">
+    		<manifest>
+    			<attribute name="Main-Class" value="drivers.Driver"/>
+    		</manifest>
+      	    <fileset dir="bin" includes="**/*.class" />
+      	    <zipgroupfileset dir="bin" includes="**/*.jar" />
+      	</jar>
     </target>
-  	<jar destfile="MappingGenerator.jar">
-		<manifest>
-			<attribute name="Main-Class" value="drivers.Driver"/>
-		</manifest>
-  	    <fileset dir="bin" includes="**/*.class" />
-  	    <zipgroupfileset dir="bin" includes="**/*.jar" />
-  	</jar>
+
 </project>
