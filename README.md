@@ -18,7 +18,8 @@ Similar steps can be used to process other CSV data.
 Steps:  
 This example was validated on a mac and AMI Linux terminal  
 
-1. sudo su  
+1. Open bash connection to your ETL Client Docker  
+`docker exec -it etl-client bash`   
 2. use git to clone this project to a dir of your choosing.  
 `git clone https://github.com/hms-dbmi/ETLToolSuite-MappingGenerator`  
 3. cd to root directory:  
