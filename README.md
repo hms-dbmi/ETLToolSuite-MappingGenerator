@@ -40,7 +40,7 @@ This example was validated on a mac and AMI Linux terminal
 `cd example`  
 11. list the directory's contents.  
 `ls -la`  
-12. exit docker containter
+12. exit docker container
 `exit`
 13. You should see the newly generated mapping files mapping.csv and mapping.csv.patient.  Using this and the associated data file you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
