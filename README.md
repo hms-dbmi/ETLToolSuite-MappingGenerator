@@ -11,7 +11,7 @@ Admin rights to machine hosting docker
 [Quick Start docker stack](https://github.com/hms-dbmi/docker-images/tree/master/deployments/i2b2transmart/quickstart)     
 [ETL Client Docker](https://github.com/hms-dbmi/etl-client-docker)    
 ***  
-Overview:
+**Overview**:    
 This will be a simple walkthrough to load the example data contained in the MappingGenerator project.
 Similar steps can be used to process other CSV data.
 
@@ -46,8 +46,20 @@ This example was validated on a mac and AMI Linux terminal
 14. Using the files generated here you can now process the data through the [Entity Generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
-**Mapping Editor**
+**Mapping Editor**    
 Once you have generated your mapping file you can now update the concept paths that will be displayed in the Applications Navigate Terms explorer.
+
+To get started using the concept editor follow these steps.  Same prerequistes.   
+1. Open bash connection to your ETL Client Docker     
+`docker exec -it etl-client bash`      
+2. Navigate to root directory to MappingGenerator project:     
+`cd ETLToolSuite-MappingGenerator`      
+3. Run the Mapping Editor:    
+`java -jar MappingEditor.jar`      
+3.1 If you want to save your old file make sure to add flag for the new destination mapping file to be written:    
+``java -jar MappingEditor.jar -destinationmappingfile ./example/mapping_new.csv``    
+3.2 You can use the -datafile flag and -mappingfile flag to also skip some dialogue.   
+``java -jar MappingEditor.jar -datafile ./example/Asthma_Misior_GSE13168.txt -mappingfile ./example/mapping.csv``   
 
 
 ***
