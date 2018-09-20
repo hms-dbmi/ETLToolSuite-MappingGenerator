@@ -7,9 +7,9 @@ Used to generate mapping files for I2B2TM ETL processes.
 **How to run the example for GSE13168**  
 
 Prerequistes:  
-git  
-Java8  
-admin rights on the machine  
+Admin rights to machine hosting docker
+[Quick Start docker stack](https://github.com/hms-dbmi/docker-images/tree/master/deployments/i2b2transmart/quickstart)     
+[ETL Client Docker](https://github.com/hms-dbmi/etl-client-docker)    
 ***  
 Overview:
 This will be a simple walkthrough to load the example data contained in the MappingGenerator project.
