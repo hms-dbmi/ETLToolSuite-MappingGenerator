@@ -46,6 +46,11 @@ This example was validated on a mac and AMI Linux terminal
 14. Using the files generated here you can now process the data through the [Entity Generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
+**Mapping Editor**
+Once you have generated your mapping file you can now update the concept paths that will be displayed in the Applications Navigate Terms explorer.
+
+
+***
 **Mapping Generator Flags**    
 *-datafile*  
 Location of the data file you wish to generate a mapping file for.  
