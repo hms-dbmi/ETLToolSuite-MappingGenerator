@@ -7,7 +7,7 @@ Used to generate mapping files for I2B2TM ETL processes.
 **How to run the example for GSE13168**  
 
 Prerequistes:  
-Admin rights to machine hosting docker
+Admin rights to machine hosting docker     
 [Quick Start docker stack](https://github.com/hms-dbmi/docker-images/tree/master/deployments/i2b2transmart/quickstart)     
 [ETL Client Docker](https://github.com/hms-dbmi/etl-client-docker)    
 ***  
