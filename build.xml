@@ -49,6 +49,13 @@
       	    <fileset dir="bin" includes="**/*.class" />
       	    <zipgroupfileset dir="bin" includes="**/*.jar" />
       	</jar>
+      	<jar destfile="MappingEditor.jar">
+    		<manifest>
+    			<attribute name="Main-Class" value="drivers.EditMapping"/>
+    		</manifest>
+      	    <fileset dir="bin" includes="**/*.class" />
+      	    <zipgroupfileset dir="bin" includes="**/*.jar" />
+      	</jar>
     </target>
 
 </project>
