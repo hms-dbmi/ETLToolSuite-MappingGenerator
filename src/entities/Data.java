@@ -122,9 +122,7 @@ public class Data {
 			}
 		} else {
 			
-			throw new Exception("Data file/dir " + dataURI + " does not exist or is unreachable!");
-		
-		
+			System.err.println("Data file/dir " + dataURI + " does not exist or is unreachable!");
 		
 		} 
 

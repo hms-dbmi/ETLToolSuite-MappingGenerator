@@ -36,13 +36,14 @@ This example was validated on a mac and AMI Linux terminal
 7. Press enter to skip when prompted "Enter the column that holds patient's gender: " as test data does not have gender information.
 8. Press enter to skip when prompted "Enter the column that holds patient's race: " as test data does not have race information.
 9. Mapping Generator will now run.
-10. cd to example dir 
+10. Navigate to example directory
 `cd example`  
 11. list the directory's contents.  
 `ls -la`  
-12. exit docker container
+12. You should see the newly generated mapping files mapping.csv and mapping.csv.patient.  
+13. exit docker container
 `exit`
-13. You should see the newly generated mapping files mapping.csv and mapping.csv.patient.  Using this and the associated data file you can now process the data through the [data generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
+14. Using the files generated here you can now process the data through the [Entity Generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).  
 
 ***
 **Mapping Generator Flags**    
@@ -67,7 +68,7 @@ Example:
 *-destinationmappingfile*  
 Path and Name of the mapping file to be generated. default behavior is to generate a filenamed mapping.txt in working folder.   
 Example:  
-`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafiledelimiter -destinationmappingfile ./example/GSE13168_Mapping.csv`  
+`java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -destinationmappingfile ./example/GSE13168_Mapping.csv`  
 
 *-datafilehasheaders*  
 Specifies whether or not the data file has headers.  Headers will be used as the default concept path when generating the mapping file.  
@@ -77,7 +78,7 @@ Example:
 `java -jar MappingGenerator.jar -datafile ./example/GSE13168_Mapping.csv -datafilehasheaders N`  
 
 *-datafileanalyze*  
-Will analyze the data to determine its generic data type ( numeric or text ).   
+Analyze the data to determine its generic data type ( numeric or text ).   
 Analyze uses following algorithm to weigh its logic:  
 Groups all values by its concept ( column ).  
 Analyzes each value to determine if it numeric.   
