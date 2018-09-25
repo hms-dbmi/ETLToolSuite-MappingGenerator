@@ -56,7 +56,7 @@ To get started using the concept editor follow these steps.  Same prerequistes.
 `cd ETLToolSuite-MappingGenerator`      
 3. Run the Mapping Editor:    
 `java -jar MappingEditor.jar`      
-3.1 If you want to save your old file make sure to add flag for the new destination mapping file to be written:    
+3.1 If you want to save your old mapping file make sure to add flag for the new destination mapping file to be written:    
 ``java -jar MappingEditor.jar -destinationmappingfile ./example/mapping_new.csv``    
 3.2 You can use the -datafile flag and -mappingfile flag to also skip some dialogue.   
 ``java -jar MappingEditor.jar -datafile ./example/Asthma_Misior_GSE13168.txt -mappingfile ./example/mapping.csv``   

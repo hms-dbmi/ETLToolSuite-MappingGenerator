@@ -136,6 +136,30 @@ public class EditMapping {
 			System.err.println(MappingUpdateDialogue.PATH_FAIL);
 			updateMappingRecord(mapping);
 		}
+		
+		System.out.println(MappingUpdateDialogue.ASK_CHANGE_DATA_TYPE);
+		
+		String changeDataType = reader.nextLine();
+		
+		if(changeDataType.contains("Y") || changeDataType.contains("y")) {
+			
+			System.out.println(MappingUpdateDialogue.DISPLAY_CURRENT_DATA_TYPE);
+			
+			System.out.println(mapping.getDataType());
+			
+			System.out.println(MappingUpdateDialogue.VERIFY_DATA_TYPE_SWAP);
+			
+			String swap = reader.nextLine();
+			if(swap.contains("Y") || swap.contains("y")) {
+				if(mapping.getDataType().equalsIgnoreCase("TEXT")) {
+					mapping.setDataType("NUMERIC");
+				} else {
+					mapping.setDataType("TEXT");
+				}
+				
+				System.out.println(MappingUpdateDialogue.DATA_TYPE_SWAPPED + mapping.getDataType());
+			}
+		}
 	}
 
 	private static boolean validatePath(String newPath) {
