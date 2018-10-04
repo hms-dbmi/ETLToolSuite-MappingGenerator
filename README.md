@@ -43,9 +43,7 @@ This example was validated on a mac and AMI Linux terminal
 12. You should see the newly generated mapping files mapping.csv and mapping.csv.patient.     
 13. exit docker container   
 `exit`   
-14. Using the files generated here you can now process the data through the [Entity Generator tool]
-
-(https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).     
+14. Using the files generated here you can now process the data through the [Entity Generator tool](https://github.com/hms-dbmi/ETLToolSuite-EntityGenerator).     
 
 ***
 **Mapping Editor**    
